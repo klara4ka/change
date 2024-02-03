@@ -10,7 +10,11 @@ public class DepositAccount extends BankAccount {
     @Override
     public void take (double amountToTake) {
         Period between = Period.between(lastIncome, LocalDate.now());
-        if (!between.isNegative())
+        if (between.getMonths() >= 1); {
+          super.take(amountToTake);
+        } else {
+            System.out.println("Нельзя снимать деньги в течение одного месяца после последнего пополнения");
+        }
     }
 
 
